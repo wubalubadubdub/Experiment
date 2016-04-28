@@ -37,4 +37,29 @@ public class Playground {
 
     }
 
+    private static Dog aDog = new Dog("Rover");
+    private static Dog anotherDog = new Dog("Fido");
+
+    public static void main(String[] args) {
+
+        changeReference(anotherDog);
+        System.out.println(aDog == anotherDog); // true. they both reference the Dog with name "Fido"
+        System.out.println(aDog.getName()); // Fido
+
+        wontChangeReference(aDog);
+        System.out.println(aDog.getName()); // still Fido, not Max
+    }
+
+    public static void changeReference(Dog anotherDog) { // really just a setter method for aDog
+        aDog = anotherDog;
+    }
+
+    // when the below method returns, anotherReferenceToPassedInDog ceases to exist. this method does
+    // nothing but create a new Dog which is destroyed when it returns. it DOES NOT affect the reference
+    // passed in in any way, because its value is merely COPIED to anotherReferenceToPassedInDog.
+    public static void wontChangeReference(Dog anotherReferenceToPassedInDog) {
+        Dog tempDog = new Dog("Max");
+        anotherReferenceToPassedInDog = tempDog; // reassignment here does NOT affect the reference passed in
+    }
+
 }
