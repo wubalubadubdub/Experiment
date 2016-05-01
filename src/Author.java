@@ -1,7 +1,7 @@
 /**
  * Created by bearg on 4/26/2016.
  */
-public class Author implements Comparable<Author> {
+public class Author implements Comparable<Author>{
 
     // Note that String also implements Comparable
     private String firstName;
@@ -10,6 +10,14 @@ public class Author implements Comparable<Author> {
     public Author(String first, String last) {
         firstName = first;
         lastName = last;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
